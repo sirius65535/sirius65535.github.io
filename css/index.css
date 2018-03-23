@@ -435,7 +435,8 @@ footer {
 }
 #page-header .site-page {
   margin-left: 0.6rem;
-  font-size: 0.6rem;
+  text-shadow: 0 0 0.1rem rgba(0,0,0,0.3);
+  font-size: 0.7rem;
 }
 #page-header.fixed {
   position: fixed;
@@ -457,11 +458,14 @@ footer {
   filter: alpha(opacity=0);
 }
 #page-header.fixed a,
-#page-header.fixed .toggle-menu {
+#page-header.fixed .toggle-menu,
+#page-header.fixed #site-name {
   color: #3b3a3a;
+  text-shadow: none;
 }
 #page-header.fixed a:hover,
-#page-header.fixed .toggle-menu:hover {
+#page-header.fixed .toggle-menu:hover,
+#page-header.fixed #site-name:hover {
   color: #49b1f5;
 }
 #page-header.visible {
@@ -472,6 +476,7 @@ footer {
   transform: translate3d(0, 100%, 0);
 }
 #page-header #site-name {
+  text-shadow: 0 0 0.1rem rgba(0,0,0,0.3);
   font-weight: bold;
   cursor: pointer;
 }
@@ -531,8 +536,21 @@ footer {
   height: 393.75px;
 }
 .recent-post-item .article-type {
-  margin: 0 0.5rem;
+  margin-left: 0.3rem;
   color: #858585;
+}
+.recent-post-item .article-meta {
+  color: #858585;
+}
+.recent-post-item .article-meta i {
+  margin: 0 0.2rem 0 0.3rem;
+}
+.recent-post-item .article-meta__separator {
+  margin-left: 0.3rem;
+}
+.recent-post-item .article-meta .fa-angle-right,
+.recent-post-item .article-meta__link {
+  margin: 0 0 0 0.3rem;
 }
 .recent-post-item time {
   color: #858585;
@@ -764,6 +782,9 @@ footer {
 @media screen and (max-width: 768px) {
   .recent-post-item .article-title {
     font-size: 1rem;
+  }
+  .recent-post-item .article-meta.tags {
+    display: none;
   }
   .gallery-item {
     width: calc(50% - 20px);
@@ -1272,6 +1293,9 @@ img:hover {
   .post-qr-code img {
     width: 6rem;
     height: 6rem;
+  }
+  #top-container {
+    background-attachment: local;
   }
   #top-container #post-title {
     font-size: 1.1rem;
