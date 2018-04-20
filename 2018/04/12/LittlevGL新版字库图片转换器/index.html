@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="LittlevGL新版字库图片转换器"><meta name="keywords" content="LittlevGL,字库"><meta name="author" content="Sirius65535,undefined"><meta name="copyright" content="Sirius65535"><title>LittlevGL新版字库图片转换器 | Sirius' Notes</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.1"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?cf6227e847d299d0912cc895a4939b58";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var GLOBAL = { 
+  root: '/',
+  algolia: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  localSearch: {"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}"},"path":"search.xml"}
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-PHP-环境安装"><span class="toc-number">1.</span> <span class="toc-text">1 PHP 环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-下载"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-安装环境"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 安装环境</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-字库以及图片的生成"><span class="toc-number">2.</span> <span class="toc-text">2 字库以及图片的生成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-获取新版转换工具"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 获取新版转换工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-字库的转换"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 字库的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-图片的转换"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 图片的转换</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://mypic666.test.upcdn.net/head.jpg"></div><div class="author-info__name text-center">Sirius65535</div><div class="author-info__description text-center">人一闲着就废了</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">5</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">9</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">4</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://mypic666.test.upcdn.net/TIM图片20180313130920.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Sirius' Notes</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/gallery">Gallery</a><a class="site-page" href="/about">About</a></span></div><div id="post-info"><div id="post-title">LittlevGL新版字库图片转换器</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-04-12</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/LittlevGL/">LittlevGL</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">621</span><span class="post-meta__separator">|</span><span>阅读时长: 2 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><h1 id="1-PHP-环境安装"><a href="#1-PHP-环境安装" class="headerlink" title="1 PHP 环境安装"></a>1 PHP 环境安装</h1><h2 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1 下载"></a>1.1 下载</h2><p>下面是 PHP7.2 的 windows 64位非安全线程版<br><a href="https://windows.php.net/downloads/releases/php-7.2.4-nts-Win32-VC15-x64.zip" target="_blank" rel="noopener">VC15 x64 Non Thread Safe</a></p>
+<h2 id="1-2-安装环境"><a href="#1-2-安装环境" class="headerlink" title="1.2 安装环境"></a>1.2 安装环境</h2><ul>
+<li><p>将下载后的压缩包解压</p>
+</li>
+<li><p>在系统变量中添加解压后的文件夹的路径，如图所示<br><img src="http://mypic666.test.upcdn.net/20180420205557.png" alt=""></p>
+</li>
+<li><p>变量中php文件夹的根目录与php文件夹中的扩展目录都要添加上去<br><img src="http://mypic666.test.upcdn.net/20180420205842.png" alt=""></p>
+</li>
+<li><p>将php根目录中的 <code>php.ini-development</code> 文件 改名为 <code>php.ini</code></p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>在 <code>php.ini</code> 文本中找到 </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;<span class="attribute">extension</span>=gd2</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>并且将<code>;</code>去掉</p>
+<ul>
+<li>再找到<code>;extension_dir=&quot;tmp&quot;</code>,将<code>;</code>去掉，并将值改为你的php根目录中扩展目录的路径<br>如<code>extension_dir = &quot;C:\php-7.2.4\ext&quot;</code></li>
+<li>在dos中输入 <code>php -v</code> 出现如下内容便是搭建成功<br><img src="http://mypic666.test.upcdn.net/20180420211304.png" alt=""><h1 id="2-字库以及图片的生成"><a href="#2-字库以及图片的生成" class="headerlink" title="2 字库以及图片的生成"></a>2 字库以及图片的生成</h1><h2 id="2-1-获取新版转换工具"><a href="#2-1-获取新版转换工具" class="headerlink" title="2.1 获取新版转换工具"></a>2.1 获取新版转换工具</h2>以下是新版转换工具的地址，将其git下来<br><a href="mailto:`git@github.com" target="_blank" rel="noopener">`git@github.com</a>:littlevgl/lv_utils.git`<h2 id="2-2-字库的转换"><a href="#2-2-字库的转换" class="headerlink" title="2.2 字库的转换"></a>2.2 字库的转换</h2></li>
+<li>git下来的目录中可以看到<code>font_conv_core.php</code>这个文件，此文件便是用来转换字库的。</li>
+<li>打开dos并且cd到当前目录中</li>
+<li>将你需要转换的xxx.ttf文件复制到当前目录中</li>
+<li><p>在dos中输入</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php font_conv_core<span class="selector-class">.php</span> <span class="string">"name=testFONT&amp;font=xxx.ttf&amp;height=20&amp;bpp=4&amp;uni_first=32&amp;uni_last=126&amp;list=%2B-0123456789&amp;built_in=0"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数<br><strong>name</strong>：要生成的字库文件的字库名以及其文件名<br><strong>font</strong>：同目录下的tff文件名<br><strong>height</strong>：字体高度<br><strong>bpp</strong>：每像素bit大小（1,2,4,8 四种）<br><strong>uni_first</strong>：选择的unicode开始范围一般为32<br><strong>last_first</strong>：选择的unicode结束范围一般为40869<br><strong>built_in</strong>：是否将其设置为内建字库，即1,2,4,8 bpp都生成<br><strong>list</strong>：输入你要转换的字符如 abcdefg123456你好</p>
+</li>
+<li><p>执行后会在当前目录中生成一个testFONT.c文件，此便是生成的字库</p>
+</li>
+</ul>
+<h2 id="2-3-图片的转换"><a href="#2-3-图片的转换" class="headerlink" title="2.3 图片的转换"></a>2.3 图片的转换</h2><ul>
+<li>在当前目录下可以看到<code>img_conv_core.php</code>文件，此便是图片转换文件。</li>
+<li>将需要转换的图片复制到当前目录，如 xxx.png<br><strong>注意，仅支持BMP，JPG，PNG三种图片格式</strong></li>
+<li><p>将doscd到当前目录下，输入如下命令 </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php img_conv_core<span class="selector-class">.php</span> <span class="string">"name=testIMG&amp;img=xxx.png&amp;format=c_array&amp;transp=alpha"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数：<br><strong>name</strong>：要生成的文件名<br><strong>img</strong>：当前目录下的源文件名称<br><strong>format</strong>：转换格式，有<code>c_array</code>, <code>bin_rgb332</code>,  <code>bin_rgb565</code>, <code>bin_rgb888</code> 四种，默认是<code>c_array</code><br><strong>transp</strong>：透明设置，有<code>none</code>,<code>alpha</code>,<code>chroma</code>三种，一般选择<code>alpha</code>,默认为<code>none</code></p>
+</li>
+<li>执行后当前目录下生成的testIMG.c文件便是转换后的图片</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Sirius65535</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://sirius.ink/2018/04/12/LittlevGL新版字库图片转换器/">http://sirius.ink/2018/04/12/LittlevGL新版字库图片转换器/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://sirius.ink" target="_blank">Sirius' Notes</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/LittlevGL/">LittlevGL</a><a class="post-meta__tags" href="/tags/字库/">字库</a></div><div class="addthis_inline_share_toolbox pull-right"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ab37a9e3fac4027" async></script><nav id="pagination"><div class="next-post pull-right"><a href="/2018/03/21/浮点数、定点数/"><span>浮点数、定点数</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'erKofV5i61nQOLJktVm0fKqd-gzGzoHsz',
+  appKey:'tw5hHM1euzFARmAdeCcGagJG',
+  placeholder:'ヾﾉ≧∀≦)o来啊，快活啊!',
+  avatar:'retro',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2016 - 2018 By Sirius65535</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="icp"><a href="https://pages.coding.me"><span>Hosted by Coding Pages</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.1"></script><script src="/js/fancybox.js?version=1.5.1"></script><script src="/js/sidebar.js?version=1.5.1"></script><script src="/js/copy.js?version=1.5.1"></script><script src="/js/fireworks.js?version=1.5.1"></script><script src="/js/transition.js?version=1.5.1"></script><script src="/js/scroll.js?version=1.5.1"></script><script src="/js/head.js?version=1.5.1"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
