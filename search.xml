@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>探究Lv_group</title>
+      <link href="/2018/04/15/%E6%8E%A2%E7%A9%B6lv_group%E6%96%87%E4%BB%B6/"/>
+      <url>/2018/04/15/%E6%8E%A2%E7%A9%B6lv_group%E6%96%87%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<h1 id="1-lv-group的作用"><a href="#1-lv-group的作用" class="headerlink" title="1 lv_group的作用"></a>1 lv_group的作用</h1><p>在LittlevGL的全局设置中可以看到(如下图)，lv_group是keyboards的扩展功能。<br><img src="http://mypic666.test.upcdn.net/20180424153733.png" alt=""></p><h1 id="2-效果"><a href="#2-效果" class="headerlink" title="2 效果"></a>2 效果</h1><p>在演示程序中可以看到，通过“Next”按键可以控制群对象中的对象之间的切换，类似于电脑上的“Tab键”控制窗口上的菜单之间的切换<br><img src="http://mypic666.test.upcdn.net/20180424164342.png" alt=""></p><a id="more"></a><p><img src="http://mypic666.test.upcdn.net/20180424224107.png" alt=""><br><img src="http://mypic666.test.upcdn.net/20180424224141.png" alt=""></p><h1 id="3-实现过程"><a href="#3-实现过程" class="headerlink" title="3 实现过程"></a>3 实现过程</h1><p>可以在演示程序的主初始化模块中看到其创建了一个群对象</p><p><img src="http://mypic666.test.upcdn.net/20180424170731.png" alt=""></p><p>并且在群对象中加入了子对象</p><p><img src="http://mypic666.test.upcdn.net/20180424172848.png" alt=""></p><p>以此实现了多个子对象组件成了群对象</p><h1 id="4-程序"><a href="#4-程序" class="headerlink" title="4 程序"></a>4 程序</h1><p>下面是群对象的结构体，可以看到第一个就是预先定义的链表结构体</p><p><img src="http://mypic666.test.upcdn.net/20180424175144.png" alt=""></p><p>通过lv_group群对象创建的源代码可以知道，首先使用了群对象的结构体大小在内存中申请了一部分空间，并且使用群对象结构体中的链表结构体的指针做头结点初始化了一个新的双向链表。</p><p><img src="http://mypic666.test.upcdn.net/20180424174354.png" alt=""></p><p>而在群对象中添加子对象的做法是在一个双向链表的尾部创建一个节点，并且将子对象的指针赋给这个节点。如果当前的结点的后继与当前链表的第一个节点的指针相同，则说明只有一个结点，同时使用<code>lv_group_focus_next()</code>在当前节点的后继创建临时的指针，待下一个子对象的指针的值赋给它。</p><p><img src="http://mypic666.test.upcdn.net/20180424200546.png" alt=""></p><p>这个双向链表的尾部创建一个节点，同样的还有<code>lv_ll_ins_head()</code> ,即在双向链表的头部创建一个结点，与下列代码大致相似。</p><p><img src="http://mypic666.test.upcdn.net/20180424215219.png" alt=""></p><p>这个是将当前的焦点转移到双向链表的下一个结点。</p><p><img src="http://mypic666.test.upcdn.net/20180424201542.png" alt=""></p><p>这样一来，群对象相当与一个链表，各个子对象相当于结点，随意切换到当前子对象的上一个或者下一个子对象都很方便。</p>]]></content>
+      
+      <categories>
+          
+          <category> LittlevGL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LittlevGL </tag>
+            
+            <tag> 链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LittlevGL新版字库图片转换器</title>
       <link href="/2018/04/12/LittlevGL%E6%96%B0%E7%89%88%E5%AD%97%E5%BA%93%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E5%99%A8/"/>
       <url>/2018/04/12/LittlevGL%E6%96%B0%E7%89%88%E5%AD%97%E5%BA%93%E5%9B%BE%E7%89%87%E8%BD%AC%E6%8D%A2%E5%99%A8/</url>
