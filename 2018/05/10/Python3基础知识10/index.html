@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Python3基础知识10"><meta name="keywords" content="Python3，File"><meta name="author" content="Sirius65535,undefined"><meta name="copyright" content="Sirius65535"><title>Python3基础知识10 | Sirius' Notes</title><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.1"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?cf6227e847d299d0912cc895a4939b58";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var GLOBAL = { 
+  root: '/',
+  algolia: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  localSearch: {"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}"},"path":"search.xml"}
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-File-的使用"><span class="toc-number">1.</span> <span class="toc-text">1 File 的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-读和写文件"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 读和写文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-f-readline"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 f.readline()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-f-redlines"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 f.redlines()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-f-write"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 f.write()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-f-tell"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 f.tell()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-f-seek"><span class="toc-number">1.6.</span> <span class="toc-text">1.6 f.seek()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-with…as…"><span class="toc-number">1.7.</span> <span class="toc-text">1.7 with…as…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-pickle-模块"><span class="toc-number">1.8.</span> <span class="toc-text">1.8 pickle 模块</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="http://mypic666.test.upcdn.net/head.jpg"></div><div class="author-info__name text-center">Sirius65535</div><div class="author-info__description text-center">人一闲着就废了</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">24</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">27</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">3</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://mypic666.test.upcdn.net/TIM图片20180313130920.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Sirius' Notes</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/gallery">Gallery</a><a class="site-page" href="/about">About</a></span></div><div id="post-info"><div id="post-title">Python3基础知识10</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-05-10</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Python3/">Python3</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2,360</span><span class="post-meta__separator">|</span><span>阅读时长: 10 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div id="post-content"><h1 id="1-File-的使用"><a href="#1-File-的使用" class="headerlink" title="1 File 的使用"></a>1 File 的使用</h1><h2 id="1-1-读和写文件"><a href="#1-1-读和写文件" class="headerlink" title="1.1 读和写文件"></a>1.1 读和写文件</h2><p>open() 将会返回一个 file 对象，基本语法格式如下:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">open</span><span class="params">(filename, mode)</span></span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>filename：filename 变量是一个包含了你要访问的文件名称的字符串值。</li>
+<li>mode：mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>rb</td>
+<td>以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>rb+</td>
+<td>以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。</td>
+</tr>
+<tr>
+<td>w</td>
+<td>打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>wb</td>
+<td>以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>wb+</td>
+<td>以二进制格式打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。</td>
+</tr>
+<tr>
+<td>a</td>
+<td>打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>ab</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+<tr>
+<td>ab+</td>
+<td>以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>r</th>
+<th>r+</th>
+<th>w</th>
+<th>w+</th>
+<th>a</th>
+<th>a+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读</td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td>+</td>
+<td></td>
+<td>+</td>
+</tr>
+<tr>
+<td>写</td>
+<td></td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>创建</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>覆盖</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>指针在开始</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>指针在结尾</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>+</td>
+</tr>
+</tbody>
+</table>
+<p>例如创建一个新文件，并写入字符串进去，然后再读出来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># coding=utf-8</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">#在当前路径下创建一个a.txt文件并打开写入模式</span><br><span class="line">f1 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;w&quot;)</span><br><span class="line"></span><br><span class="line">#写入一段文字</span><br><span class="line">f1.write(&quot;\nwrite words for testing write \nhello world\n&quot;)</span><br><span class="line"></span><br><span class="line">#关闭文件</span><br><span class="line">f1.close()</span><br><span class="line"></span><br><span class="line">#打开刚才创建的文件并使用读取模式</span><br><span class="line">f2 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;r&quot;)</span><br><span class="line"></span><br><span class="line">#读取字符串</span><br><span class="line">p_str=f2.read()</span><br><span class="line"></span><br><span class="line">f2.close()</span><br><span class="line"></span><br><span class="line">print(p_str)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write</span> <span class="built_in">words</span> <span class="keyword">for</span> testing <span class="built_in">write</span></span><br><span class="line">hello world</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-2-f-readline"><a href="#1-2-f-readline" class="headerlink" title="1.2 f.readline()"></a>1.2 f.readline()</h2><p>f.readline() 会从文件中读取单独的一行。换行符为 ‘\n’。f.readline() 如果返回一个空字符串, 说明已经已经读取到最后一行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># coding=utf-8</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">#在当前路径下创建一个a.txt文件并打开写入模式</span><br><span class="line">f1 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;w&quot;)</span><br><span class="line"></span><br><span class="line">#写入一段文字</span><br><span class="line">f1.write(&quot;write words for testing write \nhello world\n&quot;)</span><br><span class="line"></span><br><span class="line">#关闭文件</span><br><span class="line">f1.close()</span><br><span class="line"></span><br><span class="line">#打开刚才创建的文件并使用读取模式</span><br><span class="line">f2 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;r&quot;)</span><br><span class="line"></span><br><span class="line">#读取字符串</span><br><span class="line">p_str=f2.readline()</span><br><span class="line">p_str2=f2.readline(10)</span><br><span class="line"></span><br><span class="line">f2.close()</span><br><span class="line"></span><br><span class="line">print(&quot;读取一行: &quot;+p_str)</span><br><span class="line">print(&quot;读取10个字符: &quot;+p_str2)</span><br></pre></td></tr></table></figure>
+<p>输出结果如下:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">读取一行: <span class="built_in">write</span> <span class="built_in">words</span> <span class="keyword">for</span> testing <span class="built_in">write</span></span><br><span class="line"></span><br><span class="line">读取<span class="number">10</span>个字符: hello worl</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-3-f-redlines"><a href="#1-3-f-redlines" class="headerlink" title="1.3 f.redlines()"></a>1.3 f.redlines()</h2><p>f.readlines() 将返回该文件中包含的所有行。</p>
+<p>如果设置可选参数 sizehint, 则读取指定长度的字节, 并且将这些字节按行分割。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># coding=utf-8</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">#在当前路径下创建一个a.txt文件并打开写入模式</span><br><span class="line">f1 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;w&quot;)</span><br><span class="line"></span><br><span class="line">#写入一段文字</span><br><span class="line">f1.write(&quot;write words for testing write. \nhello world\n&quot;)</span><br><span class="line"></span><br><span class="line">#关闭文件</span><br><span class="line">f1.close()</span><br><span class="line"></span><br><span class="line">#打开刚才创建的文件并使用读取模式</span><br><span class="line">f2 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;r&quot;)</span><br><span class="line"></span><br><span class="line">#读取字符串</span><br><span class="line">p_str=f2.readlines()</span><br><span class="line"></span><br><span class="line">f2.close()</span><br><span class="line"></span><br><span class="line">print(p_str)</span><br></pre></td></tr></table></figure></p>
+<p>输出结果如下:<br><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">'write</span> words for testing write. \n', <span class="symbol">'hello</span> world\n']</span><br></pre></td></tr></table></figure></p>
+<p>另一种方式是迭代一个文件对象然后读取每行:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">#在当前路径下创建一个a.txt文件并打开写入模式</span><br><span class="line">f1 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;w&quot;)</span><br><span class="line"></span><br><span class="line">#写入一段文字</span><br><span class="line">f1.write(&quot;write words for testing write. \nhello world\n&quot;)</span><br><span class="line"></span><br><span class="line">#关闭文件</span><br><span class="line">f1.close()</span><br><span class="line"></span><br><span class="line">#打开刚才创建的文件并使用读取模式</span><br><span class="line">f2 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;r&quot;)</span><br><span class="line"></span><br><span class="line">#读取字符串</span><br><span class="line">for line in f2:</span><br><span class="line">	print(line)</span><br><span class="line"></span><br><span class="line">f2.close()</span><br></pre></td></tr></table></figure></p>
+<p>输出结果如下:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write</span> <span class="built_in">words</span> <span class="keyword">for</span> testing <span class="built_in">write</span>.</span><br><span class="line"></span><br><span class="line">hello world</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-4-f-write"><a href="#1-4-f-write" class="headerlink" title="1.4 f.write()"></a>1.4 f.write()</h2><p>如果要写入一些不是字符串的东西, 那么将需要先进行转换:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">#在当前路径下创建一个a.txt文件并打开写入模式</span><br><span class="line">f1 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;w&quot;)</span><br><span class="line"></span><br><span class="line">a=[&quot;abcd&quot;,123]</span><br><span class="line">b=str(a)</span><br><span class="line">#写入一段文字</span><br><span class="line">f1.write(b)</span><br><span class="line"></span><br><span class="line">#关闭文件</span><br><span class="line">f1.close()</span><br><span class="line"></span><br><span class="line">#打开刚才创建的文件并使用读取模式</span><br><span class="line">f2 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;r&quot;)</span><br><span class="line"></span><br><span class="line">#读取字符串</span><br><span class="line">p_str=f2.read()</span><br><span class="line"></span><br><span class="line">print(p_str)</span><br><span class="line"></span><br><span class="line">f2.close()</span><br></pre></td></tr></table></figure></p>
+<p>输出结果如下:<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">['abcd', <span class="number">123</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-5-f-tell"><a href="#1-5-f-tell" class="headerlink" title="1.5 f.tell()"></a>1.5 f.tell()</h2><p>f.tell() 返回文件对象当前所处的位置, 它是从文件开头开始算起的字节数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">#在当前路径下创建一个a.txt文件并打开写入模式</span><br><span class="line">f1 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;w&quot;)</span><br><span class="line"></span><br><span class="line">#写入一段文字</span><br><span class="line">f1.write(&quot;write words for testing write. \nhello world\n&quot;)</span><br><span class="line"></span><br><span class="line">#关闭文件</span><br><span class="line">f1.close()</span><br><span class="line"></span><br><span class="line">#打开刚才创建的文件并使用读取模式</span><br><span class="line">f2 =  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;r&quot;)</span><br><span class="line"></span><br><span class="line">#读取字符串</span><br><span class="line">p_str=f2.readline()</span><br><span class="line"></span><br><span class="line">#返回当前指针在文件中的位置</span><br><span class="line">pos=f2.tell()</span><br><span class="line"></span><br><span class="line">print(p_str)</span><br><span class="line"></span><br><span class="line">print(pos)</span><br><span class="line"></span><br><span class="line">f2.close()</span><br></pre></td></tr></table></figure></p>
+<p>输出结果如下:<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write</span> <span class="built_in">words</span> <span class="keyword">for</span> testing <span class="built_in">write</span>.</span><br><span class="line"></span><br><span class="line"><span class="number">33</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="1-6-f-seek"><a href="#1-6-f-seek" class="headerlink" title="1.6 f.seek()"></a>1.6 f.seek()</h2><p>如果要改变文件当前的位置, 可以使用 f.seek(offset, from_what) 函数。</p>
+<p>from_what 的值, 如果是 0 表示开头, 如果是 1 表示当前位置, 2 表示文件的结尾，例如：</p>
+<ul>
+<li>seek(x,0) ： 从起始位置即文件首行首字符开始移动 x 个字符</li>
+<li>seek(x,1) ： 表示从当前位置往后移动x个字符</li>
+<li>seek(-x,2)：表示从文件的结尾往前移动x个字符</li>
+</ul>
+<p>from_what 值为默认为0，即文件开头。下面给出一个完整的例子：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; f = open(<span class="string">'a.txt'</span>, <span class="string">'wb+'</span>)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; f.write(b<span class="string">'0123456789abcdef'</span>)</span></span><br><span class="line">16</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; f.seek(5)</span></span><br><span class="line">5</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; f.read(1)</span></span><br><span class="line">b'5'</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; f.seek(-3, 2)</span></span><br><span class="line">13</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; f.read(1)</span></span><br><span class="line">b'd'</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="1-7-with…as…"><a href="#1-7-with…as…" class="headerlink" title="1.7 with…as…"></a>1.7 with…as…</h2><p>使用with…as…可以简化file的使用，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">#在当前路径下创建一个a.txt文件并打开写入模式</span><br><span class="line">with  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;w&quot;)  as f1:</span><br><span class="line"></span><br><span class="line">#写入一段文字</span><br><span class="line">f1.write(&quot;write words for testing write. \nhello world\n&quot;)</span><br><span class="line"></span><br><span class="line">#打开刚才创建的文件并使用读取模式</span><br><span class="line">with  open(sys.path[0]+r&quot;\a.txt&quot;,&quot;r&quot;)  as f2:</span><br><span class="line"></span><br><span class="line">#读取字符串</span><br><span class="line">print(f2.read())</span><br></pre></td></tr></table></figure></p>
+<p>输出如下：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">write</span> <span class="built_in">words</span> <span class="keyword">for</span> testing <span class="built_in">write</span>.</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-8-pickle-模块"><a href="#1-8-pickle-模块" class="headerlink" title="1.8 pickle 模块"></a>1.8 pickle 模块</h2><p>python的pickle模块实现了基本的数据序列和反序列化。</p>
+<p>通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储。</p>
+<p>通过pickle模块的反序列化操作，我们能够从文件中创建上一次程序保存的对象。</p>
+<p>基本接口：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">pickle</span><span class="selector-class">.dump</span>(<span class="selector-tag">obj</span>, <span class="selector-tag">file</span>, <span class="selector-attr">[,protocol]</span>)</span><br></pre></td></tr></table></figure>
+<p>有了 pickle 这个对象, 就能对 file 以读取的形式打开:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">x</span> = pickle.load(file)</span><br></pre></td></tr></table></figure>
+<p><strong>注解：</strong>从 file 中读取一个字符串，并将它重构为原来的python对象。</p>
+<p><strong>file:</strong> 类文件对象，有read()和readline()接口。</p>
+<p>实例1：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用pickle模块将数据对象保存到文件</span></span><br><span class="line">data1 = &#123;<span class="string">'a'</span>: [<span class="number">1</span>, <span class="number">2.0</span>, <span class="number">3</span>, <span class="number">4</span>+<span class="number">6j</span>],</span><br><span class="line">         <span class="string">'b'</span>: (<span class="string">'string'</span>, <span class="string">u'Unicode string'</span>),</span><br><span class="line">         <span class="string">'c'</span>: <span class="keyword">None</span>&#125;</span><br><span class="line"></span><br><span class="line">selfref_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">selfref_list.append(selfref_list)</span><br><span class="line"></span><br><span class="line">output = open(<span class="string">'data.pkl'</span>, <span class="string">'wb'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Pickle dictionary using protocol 0.</span></span><br><span class="line">pickle.dump(data1, output)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Pickle the list using the highest protocol available.</span></span><br><span class="line">pickle.dump(selfref_list, output, <span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">output.close()</span><br></pre></td></tr></table></figure>
+<p>实例2：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line">import pprint, pickle</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用pickle模块从文件中重构python对象</span></span><br><span class="line">pkl_file = <span class="built_in">open</span>(<span class="string">'data.pkl'</span>, <span class="string">'rb'</span>)</span><br><span class="line"></span><br><span class="line">data1 = pickle.<span class="built_in">load</span>(pkl_file)</span><br><span class="line">pprint.pprint(data1)</span><br><span class="line"></span><br><span class="line">data2 = pickle.<span class="built_in">load</span>(pkl_file)</span><br><span class="line">pprint.pprint(data2)</span><br><span class="line"></span><br><span class="line">pkl_file.<span class="built_in">close</span>()</span><br></pre></td></tr></table></figure></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Sirius65535</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://sirius.ink/2018/05/10/Python3基础知识10/">http://sirius.ink/2018/05/10/Python3基础知识10/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://sirius.ink" target="_blank">Sirius' Notes</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python3，File/">Python3，File</a></div><div class="addthis_inline_share_toolbox pull-right"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ab37a9e3fac4027" async></script><nav id="pagination"><div class="prev-post pull-left"><a href="/2018/05/13/Python3基础知识11/"><i class="fa fa-chevron-left">  </i><span>Python3基础知识11</span></a></div><div class="next-post pull-right"><a href="/2018/05/08/Python3基础知识9/"><span>Python3基础知识9</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' == true ? true : false;
+var verify = 'true' == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'erKofV5i61nQOLJktVm0fKqd-gzGzoHsz',
+  appKey:'tw5hHM1euzFARmAdeCcGagJG',
+  placeholder:'ヾﾉ≧∀≦)o来啊，快活啊!',
+  avatar:'retro',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2016 - 2018 By Sirius65535</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="icp"><a href="https://pages.coding.me"><span>Hosted by Coding Pages</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.1"></script><script src="/js/fancybox.js?version=1.5.1"></script><script src="/js/sidebar.js?version=1.5.1"></script><script src="/js/copy.js?version=1.5.1"></script><script src="/js/fireworks.js?version=1.5.1"></script><script src="/js/transition.js?version=1.5.1"></script><script src="/js/scroll.js?version=1.5.1"></script><script src="/js/head.js?version=1.5.1"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
