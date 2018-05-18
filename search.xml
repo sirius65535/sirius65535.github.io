@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>Lv_fs的探究</title>
+      <link href="/2018/05/16/lv_fs%E7%9A%84%E6%8E%A2%E7%A9%B6/"/>
+      <url>/2018/05/16/lv_fs%E7%9A%84%E6%8E%A2%E7%A9%B6/</url>
+      <content type="html"><![CDATA[<h1 id="1-lv-fs-的作用"><a href="#1-lv-fs-的作用" class="headerlink" title="1 lv_fs 的作用"></a>1 lv_fs 的作用</h1><p>在 lv_conf 中可以看到有个宏定义是专门用来开启文件系统的，不过根据说明上是专门用于图片显示的。<br><img src="http://mypic666.test.upcdn.net/20180518164147.png" alt=""></p><h1 id="2-效果"><a href="#2-效果" class="headerlink" title="2 效果"></a>2 效果</h1><p>在使用图片显示功能时，有两种方式来获取图片的源数据。第一种是，将图片转换成C数组固定格式的文件，将图片数据预先编译好，使用的时候直接通过图片结构体的指针来调用；第二种是将图片转化为bin文件，先将其写入romflash，使用的时候再读入ramflash，再通过文件名调用。</p><h1 id="3-实现过程"><a href="#3-实现过程" class="headerlink" title="3 实现过程"></a>3 实现过程</h1><p>首先是枚举了文件系统的13种状态。<br><img src="http://mypic666.test.upcdn.net/20180518171912.png" alt=""></p><p>然后定义了文件系统驱动的结构体，比如第一个<code>char letter</code>,是用来定义盘符的，同时还定义了很多功能函数的结构体，如最基本的<code>open</code>、<code>close</code>、<code>read</code>、<code>write</code>，所以这个结构体配合后面的文件系统初始化函数就类似于一个挂载的作用。</p><a id="more"></a><p><img src="http://mypic666.test.upcdn.net/20180518173446.png" alt=""></p><p>初始化函数如下，实际上是调用了双链表，也就是说文件系统实际上用的是双链表的结构。<br><img src="http://mypic666.test.upcdn.net/20180518175313.png" alt=""></p><p>下面函数是用来打开文件的，第一个参数为预先设定好的一个文件的结构体，第二个参数为文件的路径，第三个为操作模式 有 读取模式<code>FS_MODE_RD</code>、写入模式<code>FS_MODE_WR</code>、读写模式<code>FS_MODE_RD|FS_MODE_WR</code> 这三种，前不久学了Python，感觉和Python的操作方法很像。<br><img src="http://mypic666.test.upcdn.net/20180518183641.png" alt=""></p><p>下面的函数功能为关闭文件，先判断文件结构体中的驱动是否存在，再判断此文件是否已经被关闭，然后释放文件结构体的缓存，再将结构体中的关键参数标记为空，直接操作之前打开文件的时候使用的文件结构体即可。<br><img src="http://mypic666.test.upcdn.net/20180518201248.png" alt=""></p><p>而删除文件的函数则比较简单，先对路径解析出其文件系统驱动以及各种参数是否存在进行一系列判断，最后移除此路径文件下的数据。<br><img src="http://mypic666.test.upcdn.net/20180518203534.png" alt=""></p>]]></content>
+      
+      <categories>
+          
+          <category> LittlevGL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LittlevGL，文件系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Lv_ll的探究</title>
       <link href="/2018/05/14/lv_ll%E7%9A%84%E6%8E%A2%E7%A9%B6/"/>
       <url>/2018/05/14/lv_ll%E7%9A%84%E6%8E%A2%E7%A9%B6/</url>
